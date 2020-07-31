@@ -21,12 +21,12 @@ const routes = [
   {
     path: '/newgood',
     name: 'NewGood',
-    component: () => import('../views/NewGood.vue')
+    component: () => import('../views/goods/NewGood.vue')
   },
   {
     path: '/showgood',
     name: 'ShowGood',
-    component: () => import('../views/ShowGood.vue')
+    component: () => import('../views/goods/ShowGood.vue')
   }
 ]
 
