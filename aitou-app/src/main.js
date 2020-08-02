@@ -5,6 +5,7 @@ import store from './store'
 import './registerServiceWorker'
 import './plugins/ionic.js'
 
+
 Vue.config.productionTip = false
 Vue.config.ignoredElements = [/^ion-/]
 
