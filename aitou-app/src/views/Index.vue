@@ -7,6 +7,7 @@
 </template>
 
 <script>
+/* eslint-disable */
 import FooterNav from "@/components/FooterNav";
 export default {
   components: { FooterNav },

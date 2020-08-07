@@ -11,10 +11,10 @@
 
     <ion-content>
       <figure>
-        <img alt="Vue logo" src="../assets/logo.png" />
+        <img alt="Vue logo" src="../assets/img/logo.png" />
       </figure>
       <div>
-        <router-link to="/about" tag="ion-button">Go To About Page</router-link>
+        <router-link to="/new-good" tag="ion-button">Go To About Page</router-link>
       </div>
     </ion-content>
   </div>

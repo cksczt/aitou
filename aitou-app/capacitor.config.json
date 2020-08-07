@@ -4,6 +4,14 @@
   "bundledWebRuntime": false,
   "npmClient": "npm",
   "webDir": "dist",
+  "server": {
+    "allowNavigation": [
+      "example.org",
+      "*.example.org",
+      "192.0.2.1",
+      "mapbox.com"
+    ]
+  },
   "plugins": {
     "SplashScreen": {
       "launchShowDuration": 0

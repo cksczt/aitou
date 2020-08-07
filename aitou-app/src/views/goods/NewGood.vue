@@ -1,34 +1,19 @@
-<template>
-  <div id="newgood">
-    <div id="imageupload" class="imageuploads">
-      <div id="gooditems" class="goodimage">item1</div>
-      <div id="gooditems" class="goodimage">item2</div>
-      <div id="gooditems" class="goodimage">item3</div>
-      <div id="gooditems" class="goodimage">item4</div>
-      <div id="gooditems" class="goodimage">item5</div>
-      <div id="gooditems" class="goodimage">item6</div>
-      <div id="gooditems" class="goodimage">item7</div>
-      <div id="gooditems" class="goodimage">item8</div>
-      <div id="gooditems" class="goodimage">item9</div>
-      <div id="gooditems" class="goodimage">item10</div>
+
+<template slot-scope="scope">
+  <figure class="images">
+    <div class="images">
+      <img src="../../assets/img/IMG_1744.png" />
     </div>
-  </div>
+  </figure>
 </template>
-<style >
-.imageuploads {
-  margin: 5px 10px 5px 30px;
-  color: #dddddd;
-  border: solid;
-  width: 330px;
-  height: 80px;
-  overflow: scroll;
-  display: inline-flex;
-}
-.goodimage {
-  margin: 5px 10px 5px 30px;
-  color: #dddddd;
-  border: dotted;
-  width: 100px;
-  height: 53px;
+<style>
+.images {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 5px;
 }
 </style>
