@@ -10,7 +10,7 @@ import { defineCustomElements } from '@ionic/pwa-elements/loader'
 
 import 'viewerjs/dist/viewer.css'
 
-Vue.use(Ionic, Viewer)
+Vue.use(Ionic)
 Vue.config.productionTip = false
 Vue.config.ignoredElements = [/^ion-/]
 

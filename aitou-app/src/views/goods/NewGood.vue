@@ -1,19 +1,22 @@
 
-<template slot-scope="scope">
-  <div class="images" v-viewer>
-    <img src="../../assets/img/IMG_1744.png" />
-    <img src="../../assets/img/IMG_1744.png" />
-    <img src="../../assets/img/IMG_1744.png" />
-  </div>
+<template>
+  <viewer :images="images">
+    <img v-for="src in images" :src="src" :key="src" />
+  </viewer>
 </template>
+<script>
+/* eslint-disable */
+export default {
+  data() {
+    return {
+      images: [
+        "https://picsum.photos/200/200",
+        "https://picsum.photos/300/200",
+        "https://picsum.photos/250/200",
+      ],
+    };
+  },
+};
+</script> 
 <style>
-.images {
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-  padding: 5px;
-}
 </style>
