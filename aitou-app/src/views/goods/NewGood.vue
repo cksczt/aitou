@@ -1,10 +1,10 @@
 
 <template slot-scope="scope">
-  <figure class="images">
-    <div class="images">
-      <img src="../../assets/img/IMG_1744.png" />
-    </div>
-  </figure>
+  <div class="images" v-viewer>
+    <img src="../../assets/img/IMG_1744.png" />
+    <img src="../../assets/img/IMG_1744.png" />
+    <img src="../../assets/img/IMG_1744.png" />
+  </div>
 </template>
 <style>
 .images {
