@@ -19,4 +19,10 @@ export default {
 };
 </script> 
 <style>
+.image {
+  height: 200px;
+  cursor: pointer;
+  margin: 5px;
+  display: inline-block;
+}
 </style>
