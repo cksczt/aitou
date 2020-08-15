@@ -1,21 +1,32 @@
 
 <template>
-  <div v-viewer class="images">
-    <template v-for="image in images">
-      <img :src="image" class="image" :key="image" />
+  <div v-viewer="options" class="images">
+    <template v-for="(image,index) in images">
+      <img :src="image.thumbnail" class="image" :key="index" :data-src="image.source" />
     </template>
   </div>
 </template>
 <script>
 /* eslint-disable */
+const sourceImages = [];
+const base = parseInt(Math.random() * 60, 10) + 10;
+for (let i = 0; i < 10; i++) {
+  sourceImages.push({
+    thumbnail: `https://picsum.photos/id/${base + i}/300/200`,
+    source: `https://picsum.photos/id/${base + i}/600/400`,
+  });
+}
+
 export default {
+  methods: {
+    toggle() {},
+  },
   data() {
     return {
-      images: [
-        "https://picsum.photos/200/200",
-        "https://picsum.photos/300/200",
-        "https://picsum.photos/250/200",
-      ],
+      options: {
+        url: "data-src",
+      },
+      images: sourceImages,
     };
   },
 };
