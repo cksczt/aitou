@@ -1,8 +1,10 @@
 
 <template>
-  <viewer :images="images">
-    <img v-for="src in images" :src="src" :key="src" />
-  </viewer>
+  <div v-viewer class="images">
+    <template v-for="image in images">
+      <img :src="image" class="image" :key="image" />
+    </template>
+  </div>
 </template>
 <script>
 /* eslint-disable */

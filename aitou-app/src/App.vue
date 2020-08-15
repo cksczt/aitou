@@ -6,6 +6,7 @@
 
 <style src='@ionic/core/css/core.css'></style>
 <style src='@ionic/core/css/ionic.bundle.css'></style>
+<style src='./assets/css/viewer.css'></style>
 <script>
 export default {
   /* eslint-disable */
