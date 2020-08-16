@@ -29,6 +29,9 @@ export default new IonicVueRouter({
     }, {
       path: '/new-good',
       component: () => import('../views/goods/NewGood.vue')
+    }, {
+      path: '/show-good',
+      component: () => import('../views/goods/ShowGood.vue')
     }
   ]
 })

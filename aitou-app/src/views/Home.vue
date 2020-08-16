@@ -14,7 +14,11 @@
         <img alt="Vue logo" src="../assets/img/logo.png" />
       </figure>
       <div>
-        <router-link to="/new-good" tag="ion-button">Go To About Page</router-link>
+        <router-link to="/new-good" tag="ion-button">Add good</router-link>
+      </div>
+
+      <div>
+        <router-link to="/show-good" tag="ion-button">show good</router-link>
       </div>
     </ion-content>
   </div>

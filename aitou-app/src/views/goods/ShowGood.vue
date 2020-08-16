@@ -1,16 +1,41 @@
+
 <template>
-  <div id="newgood" class="ion-page">
-    <ion-content fullscreen>
-      <ion-card>
-        <img src="../../assets/img/IMG_1744.png" />
-        <ion-card-header>
-          <ion-card-subtitle>Destination</ion-card-subtitle>
-          <ion-card-title>Madison, WI</ion-card-title>
-        </ion-card-header>
-        <ion-card-content>Founded in 1829 on an isthmus between Lake Monona and Lake Mendota, Madison was named the capital of the Wisconsin Territory in 1836.</ion-card-content>
-      </ion-card>
-    </ion-content>
+  <div v-viewer="options" class="images">
+    <template v-for="(image,index) in images">
+      <img :src="image.thumbnail" class="image" :key="index" :data-src="image.source" />
+    </template>
   </div>
 </template>
-<style >
+<script>
+/* eslint-disable */
+const sourceImages = [];
+const base = parseInt(Math.random() * 60, 10) + 10;
+for (let i = 0; i < 10; i++) {
+  sourceImages.push({
+    thumbnail: `https://picsum.photos/id/${base + i}/300/200`,
+    source: `https://picsum.photos/id/${base + i}/600/400`,
+  });
+}
+
+export default {
+  methods: {
+    toggle() {},
+  },
+  data() {
+    return {
+      options: {
+        url: "data-src",
+      },
+      images: sourceImages,
+    };
+  },
+};
+</script> 
+<style>
+.image {
+  height: 200px;
+  cursor: pointer;
+  margin: 5px;
+  display: inline-block;
+}
 </style>
