@@ -1,41 +1,48 @@
-
 <template>
-  <div v-viewer="options" class="images">
-    <template v-for="(image,index) in images">
-      <img :src="image.thumbnail" class="image" :key="index" :data-src="image.source" />
-    </template>
+  <div id="new-good" class="ion-page">
+    <ion-header>
+      <ion-toolbar>
+        <ion-title>商品追加</ion-title>
+      </ion-toolbar>
+    </ion-header>
+
+    <ion-content>
+      <!-- HTML <figure> 标签:文档中插图的图像 -->
+      <figure>
+        <!--el-upload:  上传文件-->
+        <el-upload class="avatar-uploader" :action="baseUrl + '/v1/addimg/food'">
+          <!-- <img v-if="foodForm.image_path" :src="baseImgPath + foodForm.image_path" class="avatar" /> -->
+          <!-- <i v-else class="el-icon-plus avatar-uploader-icon"></i> -->
+        </el-upload>
+      </figure>
+    </ion-content>
   </div>
 </template>
 <script>
 /* eslint-disable */
-const sourceImages = [];
-const base = parseInt(Math.random() * 60, 10) + 10;
-for (let i = 0; i < 10; i++) {
-  sourceImages.push({
-    thumbnail: `https://picsum.photos/id/${base + i}/300/200`,
-    source: `https://picsum.photos/id/${base + i}/600/400`,
-  });
-}
-
+import { baseUrl, baseImgPath } from "@/config/env";
 export default {
-  methods: {
-    toggle() {},
-  },
   data() {
     return {
-      options: {
-        url: "data-src",
-      },
-      images: sourceImages,
+      baseUrl,
+      baseImgPath,
     };
   },
 };
-</script> 
-<style>
-.image {
-  height: 200px;
+</script>
+<style lang="scss">
+#home {
+  ion-header ion-toolbar {
+    color: white;
+    --background: var(--ion-color-dark-tint);
+  }
+}
+
+.avatar-uploader .el-upload {
+  border: 1px dashed #d9d9d9;
+  border-radius: 6px;
   cursor: pointer;
-  margin: 5px;
-  display: inline-block;
+  position: relative;
+  overflow: hidden;
 }
 </style>

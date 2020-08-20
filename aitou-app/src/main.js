@@ -1,3 +1,5 @@
+import ElementUI from 'element-ui'
+import 'element-ui/lib/theme-chalk/index.css'
 import Vue from 'vue'
 import Viewer from 'v-viewer'
 import App from './App.vue'
@@ -7,7 +9,7 @@ import Ionic from '@ionic/vue'
 import './registerServiceWorker'
 import './plugins/ionic.js'
 
-Vue.use(Viewer, Ionic)
+Vue.use(ElementUI, Viewer, Ionic)
 new Vue({
   el: '#app',
   router,
