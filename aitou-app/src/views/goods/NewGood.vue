@@ -32,27 +32,20 @@
 
           <el-upload
             class="avatar-uploader"
-            ref="upload"
+            :action="baseUrl + '/v1/addimg/food'"
             :show-file-list="true"
-            :before-upload="beforeUpload"
-            :on-remove="removeUpload"
-            :on-preview="handlePreview"
-            :file-list="fileList"
+            :on-success="uploadImg"
+            :before-upload="beforeImgUpload"
             :auto-upload="true"
-            :action="actionUp"
-            :http-request="fileRequest"
-            :data="pppss"
             multiple
             :limit="10"
-            :on-exceed="onExceed"
           >
-            <i class="el-icon-plus avatar-uploader-icon"></i>
             <div class="el-upload__text">
               将图片拖到此处，或
               <em>点击上传</em>
             </div>
-            <!-- <img v-if="foodForm.image_path" :src="baseImgPath + foodForm.image_path" class="avatar" /> -->
-            <!-- <i v-else class="el-icon-plus avatar-uploader-icon"></i> -->
+            <img v-if="foodForm.image_path" :src="baseImgPath + foodForm.image_path" class="avatar" />
+            <i v-else class="el-icon-plus avatar-uploader-icon"></i>
           </el-upload>
         </figure>
       </el-form>
@@ -65,12 +58,25 @@ import { baseUrl, baseImgPath } from "@/config/env";
 export default {
   data() {
     return {
-      doUpload: "/api/up/file",
-      pppss: {
-        srid: "",
-      },
       baseUrl,
       baseImgPath,
+      foodForm: {
+        name: "",
+        description: "",
+        image_path: "",
+        activity: "",
+        attributes: [],
+        specs: [
+          {
+            specs: "默认",
+            packing_fee: 0,
+            price: 20,
+          },
+        ],
+      },
+      foodrules: {
+        name: [{ required: true, message: "请输入食品名称", trigger: "blur" }],
+      },
     };
   },
   methods: {
@@ -86,6 +92,13 @@ export default {
         this.$message.error("上传头像图片大小不能超过 2MB!");
       }
       return isRightType && isLt2M;
+    },
+    uploadImg(res, file) {
+      if (res.status == 1) {
+        this.foodForm.image_path = res.image_path;
+      } else {
+        this.$message.error("上传图片失败！");
+      }
     },
     handleDelete(index) {
       this.foodForm.specs.splice(index, 1);
@@ -133,5 +146,10 @@ export default {
 .food_form {
   border: 1px solid #eaeefb;
   padding: 10px 10px 0;
+}
+.avatar {
+  width: 120px;
+  height: 120px;
+  display: block;
 }
 </style>
