@@ -22,6 +22,7 @@
     "call-number": "^1.0.1",
     "core-js": "^3.6.5",
     "element-ui": "^2.13.2",
+    "less-loader": "^6.2.0",
     "moment": "^2.24.0",
     "phonegap-plugin-barcodescanner": "^8.1.0",
     "register-service-worker": "^1.7.1",
@@ -50,11 +51,12 @@
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-standard": "^4.0.0",
     "eslint-plugin-vue": "^6.2.2",
+    "ionicons": "5.0.1",
     "lint-staged": "^9.5.0",
-    "node-sass": "^4.12.0",
+    "node-sass": "^4.14.1",
     "sass-loader": "^8.0.2",
     "vue-cli-plugin-ionic": "~1.0.0-alpha.1",
-    "ionicons": "5.0.1",
+    "vue-style-loader": "^4.01.52",
     "vue-template-compiler": "^2.6.11"
   },
   "eslintConfig": {
@@ -70,7 +72,14 @@
     "parserOptions": {
       "parser": "babel-eslint"
     },
-    "rules": {}
+    "rules": {
+      "semi": [
+        2,
+        "always"
+      ],
+      "no-tabs": "off",
+      "indent": "off"
+    }
   },
   "postcss": {
     "plugins": {
