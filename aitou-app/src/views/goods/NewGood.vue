@@ -8,13 +8,7 @@
 
     <ion-content>
       <!-- HTML <figure> 标签:文档中插图的图像 -->
-      <el-form
-        :model="foodForm"
-        :rules="foodrules"
-        ref="foodForm"
-        label-width="110px"
-        class="form food_form"
-      >
+      <el-form :model="foodForm" ref="foodForm" label-width="110px" class="form food_form">
         <figure>
           <!--
           el-upload:  上传文件
@@ -32,20 +26,21 @@
 
           <el-upload
             class="avatar-uploader"
-            :action="baseUrl + '/v1/addimg/food'"
-            :show-file-list="true"
-            :on-success="uploadImg"
-            :before-upload="beforeImgUpload"
-            :auto-upload="true"
+            action
             multiple
             :limit="10"
+            list-type="picture-card"
+            :file-list="fileList"
+            :on-success="uploadImg"
+            :before-upload="beforeImgUpload"
+            :on-change="changeImage"
+            :auto-upload="false"
           >
-            <div class="el-upload__text">
+            <div class="el-icon-plus el-upload__text">
               将图片拖到此处，或
               <em>点击上传</em>
             </div>
-            <img v-if="foodForm.image_path" :src="baseImgPath + foodForm.image_path" class="avatar" />
-            <i v-else class="el-icon-plus avatar-uploader-icon"></i>
+            <i class="avatar-uploader-icon"></i>
           </el-upload>
         </figure>
       </el-form>
@@ -60,6 +55,7 @@ export default {
     return {
       baseUrl,
       baseImgPath,
+      fileList: [],
       foodForm: {
         name: "",
         description: "",
@@ -73,9 +69,6 @@ export default {
             price: 20,
           },
         ],
-      },
-      foodrules: {
-        name: [{ required: true, message: "请输入食品名称", trigger: "blur" }],
       },
     };
   },
@@ -100,16 +93,9 @@ export default {
         this.$message.error("上传图片失败！");
       }
     },
-    handleDelete(index) {
-      this.foodForm.specs.splice(index, 1);
-    },
-    fileRequest(item) {
-      let uploadData = new FormData();
-      uploadData.append("file", item.file);
-      this.$axios.post("http://localhost:8080", uploadData).then((res) => {
-        //  成功
-        console.log("8888");
-      });
+    changeImage(file, fileList) {
+      this.files = fileList;
+      console.log("changeImage==" + JSON.stringify(file));
     },
   },
 };
@@ -134,13 +120,13 @@ export default {
 }
 
 .avatar-uploader .el-upload {
-  border: 1px dashed #ee0000;
+  border: 50px #ee0000 #ee0000;
   border-radius: 6px;
   cursor: pointer;
   position: relative;
   overflow: hidden;
-  height: 80px;
-  width: 80px;
+  height: 100px;
+  width: 100px;
 }
 
 .food_form {
@@ -150,6 +136,6 @@ export default {
 .avatar {
   width: 120px;
   height: 120px;
-  display: block;
+  display: inline-flex;
 }
 </style>
