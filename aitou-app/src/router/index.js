@@ -1,11 +1,12 @@
-import Vue from 'vue'
-import { IonicVueRouter } from '@ionic/vue'
-import Index from '../views/Index.vue'
-import Home from '../views/Home.vue'
-import Favorite from '../views/Favorite.vue'
-import Settings from '../views/Settings.vue'
+/** 路由就是根据网址的不同，返回不同的内容给用户 */
+import Vue from 'vue';
+import { IonicVueRouter } from '@ionic/vue';
+import Index from '../views/Index.vue';
+import Home from '../views/Home.vue';
+import Favorite from '../views/Favorite.vue';
+import Settings from '../views/Settings.vue';
 
-Vue.use(IonicVueRouter)
+Vue.use(IonicVueRouter);
 
 export default new IonicVueRouter({
   mode: 'history',
@@ -34,4 +35,4 @@ export default new IonicVueRouter({
       component: () => import('../views/goods/ShowGood.vue')
     }
   ]
-})
+});
