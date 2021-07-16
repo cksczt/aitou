@@ -1,4 +1,4 @@
-<!-- 模板标签 -->
+<!-- 定义视图的模板 -->
 <template>
   <!--ion-app 包装其他组件的顶级组件 -->
   <ion-app id="app">
@@ -10,7 +10,7 @@
 <style src='@ionic/core/css/ionic.bundle.css'></style>
 <style src='./assets/css/viewer.css'></style>
 <script>
-/** 组件的逻辑 */
+/** 组件的逻辑 定义应用逻辑的Javascript */
 export default {
   /* eslint-disable */
   name: "App",

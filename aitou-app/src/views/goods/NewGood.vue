@@ -8,9 +8,13 @@
 
     <ion-content>
       <!-- HTML <figure> 标签:文档中插图的图像 -->
-      <el-form :model="foodForm" ref="foodForm" label-width="110px" class="form food_form">
-        <figure>
-          <!--
+      <el-form
+        :model="foodForm"
+        ref="foodForm"
+        label-width="110px"
+        class="form food_form"
+      >
+        <!--
           el-upload:  上传文件
           :show-file-list  显示已上传的文件列表
           :before-upload 上传之前触发的事件
@@ -24,25 +28,48 @@
           :auto-upload="true"> //是否自动上传
           -->
 
-          <el-upload
-            class="avatar-uploader"
-            action
-            multiple
-            :limit="10"
-            list-type="picture-card"
-            :file-list="fileList"
-            :on-success="uploadImg"
-            :before-upload="beforeImgUpload"
-            :on-change="changeImage"
-            :auto-upload="false"
-          >
-            <div class="el-icon-plus el-upload__text">
-              将图片拖到此处，或
-              <em>点击上传</em>
-            </div>
-            <i class="avatar-uploader-icon"></i>
-          </el-upload>
-        </figure>
+        <el-upload
+          class="avatar-uploader"
+          action
+          multiple
+          :limit="10"
+          list-type="picture-card"
+          :file-list="fileList"
+          :on-success="uploadImg"
+          :before-upload="beforeImgUpload"
+          :on-change="changeImage"
+          :auto-upload="false"
+        >
+          <div class="el-icon-plus el-upload__text">
+            将图片拖到此处，或
+            <em>点击上传</em>
+          </div>
+          <i class="avatar-uploader-icon"></i>
+        </el-upload>
+      </el-form>
+      <el-form ref="newgoodform" :model="newgoodform" label-width="80px">
+        <el-form-item label="商品名称">
+          <el-input v-model="newgoodform.goodname"></el-input>
+        </el-form-item>
+        <el-form-item label="商品价格">
+          <el-input v-model="newgoodform.goodprice"></el-input>
+        </el-form-item>
+        <el-form-item label="商品材质">
+          <el-select v-model="newgoodform.meterials" placeholder="请选择材质">
+            <el-option label="皮革" value="leather"></el-option>
+            <el-option label="纸质" value="paper"></el-option>
+          </el-select>
+        </el-form-item>
+        <el-form-item label="交货日期">
+          <el-col :span="11">
+            <el-date-picker
+              type="date"
+              placeholder="选择交货日期"
+              v-model="newgoodform.deliverydate"
+              style="width: 100%"
+            ></el-date-picker>
+          </el-col>
+        </el-form-item>
       </el-form>
     </ion-content>
   </div>
@@ -69,6 +96,12 @@ export default {
             price: 20,
           },
         ],
+      },
+      newgoodform: {
+        goodname: "",
+        goodprice: "",
+        meterials: "",
+        deliverydate: "",
       },
     };
   },
@@ -132,10 +165,20 @@ export default {
 .food_form {
   border: 1px solid #eaeefb;
   padding: 10px 10px 0;
+  overflow: hidden;
+  overflow: auto;
 }
 .avatar {
   width: 120px;
   height: 120px;
   display: inline-flex;
+}
+
+.el-upload-list--picture-card {
+  margin: 0;
+  display: inline-flex;
+  vertical-align: top;
+  flex-direction: row;
+  flex-wrap: nowrap;
 }
 </style>
