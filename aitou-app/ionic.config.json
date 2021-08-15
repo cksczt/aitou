@@ -1,7 +1,0 @@
-{
-  "name": "aitou-app",
-  "integrations": {
-    "capacitor": {}
-  },
-  "type": "vue"
-}
